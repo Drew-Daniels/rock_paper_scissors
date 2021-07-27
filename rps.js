@@ -168,6 +168,12 @@ function logRound(playerMove) {
     let resultText = `Round ${roundCounter}: `+ playRound(playerMove, computerPlay());
     roundCounter++;
     updateScores()
+    let isAWinner = checkForWinner();
+    if (isAWinner) {
+        let winner = determineWinner();
+        resultText = genWinnerText(winner)
+        startNewGame();
+    }
     return resultText;
 }
 
@@ -183,5 +189,38 @@ function displayMove(moveStr) {
     historyLog.appendChild(lastMove);
 }
 
+// checks to see if either player has score of 5 (or higher for some reason)
+function checkForWinner() {
+    let result = ((playerScore >= 5) || (computerScore >= 5)) ? true: false;
+    return result;
+}
 
+function determineWinner() {
+    if (playerScore === computerScore) {
+        return ['tie', [playerName, playerScore, computerName, computerScore]]
+    }
+    else if (playerScore > computerScore) {                           // player win
+        return ['win', [playerName, playerScore, computerName, computerScore]] // [winnerName, winnerScore, loserName, loserScore]
+    } else {
+        return ['win',[computerName, computerScore, playerName, playerScore]] // computer win
+    }
+}
 
+function genWinnerText(winnerStats) {
+    let [winType, [winnerName, winnerScore, loserName, loserScore]] = winnerStats;
+    if (winType === 'tie') {
+        return (`Tie: ${computerName} scored ${computerScore} and ${playerName} scored ${playerScore}`);
+    } else {
+        nonTieMsg = (`${winnerName} WON with a score of ${winnerScore} against ${loserName} with a score of ${loserScore}`);
+        return nonTieMsg;
+    }
+}
+
+function startNewGame() {
+    const lastGamesLogs = document.querySelector('.histLog')
+    while (lastGamesLogs.firstChild) {
+        lastGamesLogs.firstChild.remove()
+    }
+    [computerScore, playerScore] = [0,0]
+    roundCounter = 1;
+}

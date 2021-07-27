@@ -5,26 +5,33 @@
         <link rel="stylesheet" href="assets/stylesheets/style.css">
         <title>THE Drew Daniels' Rock, Paper, Scissors Game</title>
     </head>
+    <H1>
+        ---------------------------------
+    </H1>
     <h1>
-        ROCK *** PAPER *** SCISSORS
+        LET'S ROCK... (paper, scissors)
     </h1>
-    <nav>
-
-    </nav>
+    <h1>
+        ---------------------------------
+    </h1>
     <body>
         <script src="rps.js" defer></script>
-        <div id="btn-group">
+        <div class="btn-group">
             <button id="rock">Rock</button>
             <button id="paper">Paper</button>
             <button id="scissors">Scissors</button>
         </div>
-        <div id="results">
-            <p id="player-score-label" class="scorebox-label">Player Score:</p>
-            <p id="player-score-counter" class="scorebox-counter">0</p>
-            <p id="computer-score-label" class="scorebox-label">Computer Score:</p>
-            <p id="computer-score-counter" class="scorebox-counter">0</p>
+        <div id="results" class="scorebox-base">
+            <div id="player-stats" class="scorebox-base">
+                <p id="player-score-label" class="scorebox-label">Player Score: </p>
+                <p id="player-score-counter" class="scorebox-counter">0</p>
+            </div>
+            <div id="computer-stats" class="scorebox-base">
+                <p id="computer-score-label" class="scorebox-label">Computer Score:</p>
+                <p id="computer-score-counter" class="scorebox-counter">0</p>
+            </div>
         </div>
-        <div id="historyLog">
+        <div id="historyLog" class="histLog">
         </div>
     </body>
 </html>

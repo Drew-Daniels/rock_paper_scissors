@@ -47,29 +47,39 @@ table {
 	border-spacing: 0;
 }
 
-.btn-group {
+h1 {
+	text-align: center;
+}
+
+.histLog {
 	display: flex;
 	flex-direction: column;
-	align-content: space-between;
-	padding: 100px;
+	align-items: center;
+}
+
+.btn-group {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 }
 .scorebox-base {
 	display: flex;
-	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin: 10px;
 	align-content: space-between;
-	padding: 100px;
 }
 
 .scorebox-label {
 	display: inline-block;
 	flex-direction: column;
 	align-content: space-between;
-
+	margin: 5px;
 }
 
 .scorebox-counter {
-	display: flex;
+	display: inline-block;
 	flex-direction: column;
 	align-content: space-between;
-
 }
